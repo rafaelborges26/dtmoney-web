@@ -1,13 +1,15 @@
+import { useContext } from 'react';
+import { useState } from 'react';
 import { useEffect } from 'react'
+import { api } from '../../services/api'
+import { TransactionsContext } from '../../TransactionsContext';
 import { Container } from './styles'
 
 export function TransactionsTable() {
 
-    useEffect(() => {
-        fetch('http://localhost:3000/api/transactions')
-        .then(response => response.json())
-        .then(data => console.log(data))
-    },[])
+    const transactions = useContext(TransactionsContext)
+
+    console.log(transactions, 'tsts')
 
     return (
         <Container>
